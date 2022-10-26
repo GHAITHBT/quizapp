@@ -1,9 +1,10 @@
 import React from "react"
 import "./App.css";
 import {useNavigate} from "react-router-dom"
+import Navbar from "./components";
 export default function Home () {
   const navigate = useNavigate();
-  const images = ["images/PFSC1.jpeg", "images/chef6.gif","images/FSC-1.png"];
+  const images = ["images/PFSC1.jpeg", "images/chef6.gif"];
   const delay = 2500;
   
     const [index, setIndex] = React.useState(0);
@@ -31,20 +32,29 @@ export default function Home () {
     }, [index]);
   
   return (
-	<div style={{backgroundImage: 
-    "url('images/cheese3.jpg')",
-           height:'100%',
-           marginTop:'0px',
-           backgroundSize: 'cover',
-           backgroundRepeat: 'no-repeat',
-           overflowX:"scroll",
-           position:"absolute"}}>
-      <table style={{width:"200vh",marginLeft:"50px"}}><tr><td>        <img alt="img1" src="images/fsc1.png" style={{width:"50%",height:"50px"}} ></img>
-</td><td>        <div style={{fontSize:"20px",marginLeft:"45%",color:"white",backgroundColor:"grey"}}>AUTO-ÉVALUATION DES VALEURS DE L’ENTREPRISE</div>
-</td></tr></table>
-<hr style={{border: "2.5px solid #4682B4",width:"98%"}}></hr>
+	<div >
+    <div style={{height:"15px",backgroundColor:"#177985"}}></div>
+           <div style={{backgroundImage: 
+ "url('images/cheese6.png')",
+ height:'11vh',
+
+        marginTop:'0px',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'}}> 
+      <table style={{width:"95%",marginLeft:"50px",marginBottom:"20px"}}><tr><td>        <img alt="img1" src="images/logo1.png" style={{width:"50%",height:"50px"}} ></img>
+</td><td>        <Navbar/>
+</td></tr></table></div>
+<div style={{backgroundColor:"#177985",height:"120px"}}><center><h2  style={{color:"white",paddingTop:"25px"}}>Food Safety Culture : Auto-évaluation
+</h2><h3 style={{color:"white"}}>Culture Sécurité des Aliments</h3></center></div>
+<div style={{backgroundImage: 
+ "url('images/cheese2.jpg')",
+        height:'100%',
+        marginTop:'0px',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'}}>
        <div className="slideshow">
-      
+     <center>  <hr style={{border: "3px solid #4682B4",width:"80%"}}></hr></center>
+
 
       <div
         className="slideshowSlider"
@@ -73,32 +83,11 @@ export default function Home () {
       
     </div>
     <div >
-    <hr style={{border: "2.5px solid #4682B4",width:"98%"}}></hr>
+    <center><hr style={{border: "3px solid #4682B4",width:"80%"}}></hr></center>
 
-      <table style={{width:"90%",marginLeft:"10%"}} >
-        <tr><td>
-          <div class="card text-white bg-dark mb-3" style={{width:"60%",cursor:"pointer"}}onClick={()=>navigate("/Info")}>
-  <div class="card-header"><center> Auto-évaluation Food safety Culture</center></div>
-  <div class="card-body">
-  <img alt="img1" src="images/quiz.png" style={{width:"100%",height:"170px",cursor:"pointer"}} onClick={()=>navigate("/Info")} ></img>
-  </div>
-</div>
-          
-          
-          
-          </td>
-        <td> 
-        <div class="card text-white bg-dark mb-3" style={{width:"60%",cursor:"pointer"}}onClick={()=>navigate("/Password")}>
-  <div class="card-header"><center> Statistique</center></div>
-  <div class="card-body">
-  <img alt="img1" src="images/stats.png" style={{width:"100%",height:"170px",cursor:"pointer"}}onClick={()=>navigate("/Password")} ></img>
-   </div>
-</div>
-</td></tr>
-      </table>
         <br></br>
        
-        
+        </div>
   
     </div>
 

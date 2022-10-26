@@ -7,6 +7,7 @@ import LineChart from "./charts/LineChart";
 import PieChart from "./charts/PieChart";
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from './components';
 
 export const Chart=()=> {
   const [Data, setData] = useState([]);
@@ -199,10 +200,20 @@ const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear
   return (
     
     <div >
-      <table style={{width:"120%",marginLeft:"50px"}}><tr><td>        <img alt="img1" src="images/fsc1.png" style={{width:"50%",height:"50px"}} ></img>
-</td><td>        <div style={{fontSize:"20px",marginLeft:"30%",color:"black",backgroundColor:"white"}}>AUTO-ÉVALUATION DES VALEURS DE L’ENTREPRISE</div>
-</td></tr></table>
-<hr></hr>
+     <div style={{height:"15px",backgroundColor:"#177985"}}></div>
+           <div style={{backgroundImage: 
+ "url('images/cheese6.png')",
+ 
+
+        marginTop:'0px',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'}}> 
+      <table style={{width:"90%",marginLeft:"50px",marginBottom:"5px"}}><tr><td>        <img alt="img1" src="images/logo1.png" style={{width:"50%",height:"50px"}} ></img>
+</td><td>        <Navbar/>
+</td></tr></table></div>
+<div style={{backgroundColor:"#177985",height:"120px"}}><center><h3  style={{color:"white",paddingTop:"25px"}}>Food Safety Culture : Auto-évaluation
+</h3><h3 style={{color:"white"}}>Culture Sécurité des Aliments</h3></center></div>
+
 <h3 style={{backgroundColor:"white"}}>Nombre de participants {Data.length}</h3>
 <Table className=' responsivetable table-striped table-hover table-bordered'><tr>
   <td style={{'height': `700px` , 'overflow':'Scroll', 'display': 'block'}}><Table className=' responsivetable table-striped table-hover table-bordered'>
@@ -227,26 +238,7 @@ const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear
 
       
 
-<div className='model-box-view'>
-<Modal
-    show={ViewPostfour}
-    onHide={hanldePostClosefour}
-    backdrop="static"
-    keyboard={false}
->
-    <Modal.Header closeButton>
-        <Modal.Title>Ajouter Fournisseur</Modal.Title>
-    </Modal.Header>
-    <Modal.Body>
-        <div>
-           {nbPO()}
-        </div>
-    </Modal.Body>
-    <Modal.Footer>
-    <Button variant='warning' onClick={hanldePostClosefour}style={{marginTop:"25px"}}>Fermer</Button>
-    </Modal.Footer>
-</Modal>
-</div>
+
 </div>
 
   );

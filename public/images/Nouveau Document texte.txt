@@ -1,0 +1,31 @@
+style={{backgroundImage: 
+    "url('images/cheese2.jpg')",
+           height:'100%',
+           marginTop:'0px',
+           backgroundSize: 'cover',
+           backgroundRepeat: 'no-repeat',
+           overflowX:"scroll",
+           position:"absolute"}}
+/*****************************************************************************/
+
+      <table style={{width:"90%",marginLeft:"10%"}} >
+        <tr><td>
+          <div class="card text-white bg-dark mb-3" style={{width:"60%",cursor:"pointer"}}onClick={()=>navigate("/Info")}>
+  <div class="card-header"><center> Auto-évaluation Food safety Culture</center></div>
+  <div class="card-body">
+  <img alt="img1" src="images/quiz.png" style={{width:"100%",height:"170px",cursor:"pointer"}} onClick={()=>navigate("/Info")} ></img>
+  </div>
+</div>
+          
+          
+          
+          </td>
+        <td> 
+        <div class="card text-white bg-dark mb-3" style={{width:"60%",cursor:"pointer"}}onClick={()=>navigate("/Password")}>
+  <div class="card-header"><center> Statistique</center></div>
+  <div class="card-body">
+  <img alt="img1" src="images/stats.png" style={{width:"100%",height:"170px",cursor:"pointer"}}onClick={()=>navigate("/Password")} ></img>
+   </div>
+</div>
+</td></tr>
+      </table>
