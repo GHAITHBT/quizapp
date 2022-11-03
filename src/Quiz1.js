@@ -21,16 +21,14 @@ const [isPaused, setIsPaused] = useState(true);
 const [time, setTime] = useState(0);
 
   const current = new Date();
-
   const [timeStart, settimeStart] = useState("");
   const [timeFinish, settimeFinish] = useState("");
   const [timer, settimer] = useState(0);
-
    const [repo, setRepo] = useState("");
    const [QST, setQST] = useState([]);
 const handledata = () => {
     const url = `http://localhost:5001/add_data`
-    const Credentials = { Poste,QST,score,time,Vision,Cohérence,Personnel,Adaptabilité,Sensibilisation}
+    const Credentials = { Poste,QST,score,time}
     axios.post(url, Credentials)
         .then(response => {
             const result = response.data;
@@ -65,18 +63,14 @@ const handledata = () => {
   const handlePauseResume = () => {
     setIsPaused(!isPaused);
   };
-  const [Vision,SetVision]=useState(0)
-  const [Cohérence,SetCohérence]=useState(0)
-  const [Personnel,SetPersonnel]=useState(0)
-  const [Adaptabilité,SetAdaptabilité]=useState(0)
-  const [Sensibilisation,SetSensibilisation]=useState(0)
- 
+  
   const handleReset = () => {
     setIsActive(false);
     setTime(0);
   };
   useEffect(() => {
     console.log('test tijngsdfsd',s)
+    handleStart()
 
     console.log("start time",timeStart);
     console.log("finishc time",timeFinish);
@@ -85,11 +79,6 @@ const handledata = () => {
     console.log(repo)
     console.log(Poste)
     console.log(QST)
-    console.log(Vision)
-    console.log(Cohérence)
-    console.log(Personnel)
-    console.log(Adaptabilité)
-    console.log(Sensibilisation)
     setPoste(localStorage.getItem("Poste"))
     let interval = null;
 
@@ -103,7 +92,7 @@ const handledata = () => {
 	return () => {
 	clearInterval(interval);
 	};
-  }, [timeStart,timeFinish,repo,Poste,QST,timer,isActive,isPaused,Vision,Personnel,Cohérence,Adaptabilité,Sensibilisation]);
+  }, [timeStart,timeFinish,repo,Poste,QST,timer,isActive,isPaused]);
 
   const questions = [
     {
@@ -114,9 +103,7 @@ const handledata = () => {
         { id: 2, text: "Participatif : en plus de l'affichage ,réunions d'équipe regulieres avec les rappels des faits marquants et suivi par l'encadrement terrain", isCorrect: false },
         { id: 3, text: "Classique : Affichage , déclaration 'qualité' comme demandé par les normes", isCorrect: true },
         { id: 4, text: "Adapté : Diffusion par plusieurs canaux officiels et informels ,explicite concernant les objectifs / valeur et les indicateurs de terrain ", isCorrect: true },
-        
       ],
-      cat:"Vision",
     },
     {
       text: "En quoi consiste la formation des employés sur les dangers et les risques en matière des sécurités des aliments ?",
@@ -127,7 +114,6 @@ const handledata = () => {
         { id: 3, text: "les programmes de formation sont adaptés en continu en fonction de l'évolution de l'équipe .Les bonnes pratiques sont largement suivies (selon des indicateurs documentés)", isCorrect: false },
         { id: 4, text: "Pas de formation ou formation à la conformité uniquement (BPH,principes généraux HACCP ,etc.)", isCorrect: false },
       ],
-      cat:"Sensibilisation",
     },
     {
       text: "En terme de système d'alerte , laquelle des propositions suivantes serait la plus adaptée ?",
@@ -138,7 +124,6 @@ const handledata = () => {
         { id: 3, text: "Le personnel a pris l'habititude de remonter a ses responsables hiérarchiques ,toutes les activités déviantes de manière informelle et leur fait confiance pour le suivi.", isCorrect: false },
         { id: 4, text: "Pas de système de lanceur d'alerte en place les employés ne sont pas informés.", isCorrect: false },
       ],
-      cat:"Adaptabilité",
     },
     {
       text: "Les indicateurs liés à la bonne application des pratiques de sécurité des aliments par le personnel sont : ",
@@ -149,7 +134,6 @@ const handledata = () => {
         { id: 3, text: "Clairement établis sur un ensemble de mesures du comportement et des résultats en matière d'hygiène d'éfficacité des bonnes pratiques.", isCorrect: false },
         { id: 4, text: "Vagements définis , inclus dans les indicateurs de réclamations et d'hygène", isCorrect: false },
       ],
-      cat:"Personnel",
     },
     {
       text: "En matière de formation des encadrants de terrain et des opérateurs , laquelle de ces affirmations serait la plus représentative de votre situation :",
@@ -160,7 +144,6 @@ const handledata = () => {
         { id: 3, text: "Des messages proactifs sur la sécurité sanitaire des aliments sont intégrés aux communications régulière de la haute direction et diffusés .Système formel de formation à la gestion en place et mis en œuvre. Le matèriel de formation souligne l'importance de la sécurité des aliments pour le personnel ainsi que pour l'équipement et les pratiques de base en mettant sur les risques et leurs conséquences éventuelles ", isCorrect: false },
         { id: 4, text: "Matèriels de formation inexistants ou mal produits , contenus faibles ou non adaptés à l'entreprise .Accent éducatif limité aux compétences techniques ou se concentre uniquement ou principalement sur l'hygiène du personnel .On considère la sécurité des aliments comme une pratique qui ne nécissite pas de formation théorique.", isCorrect: false },
       ],
-      cat:"Personnel",
     },
     {
       text: "Comment décrirez vous le niveau de connaissance de la mission / vision de l'entreprise en matière de sécurité des aliments ?",
@@ -171,7 +154,6 @@ const handledata = () => {
         { id: 3, text: "La sécurité des aliments est une valeur fondamentale de l'entreprise : des actions en matière d'amélioration sont menées , L'encadrement et le personnel peuvent les énoncer clairement (dernier investissement en la metière ou décision prise).", isCorrect: false },
         { id: 4, text: "Le personnel et l'encadrement ont connaissances qu'une politique existe sans plus de détail.", isCorrect: false },
       ],
-      cat:"Vision",
     },{
       text: "En tenant compte des disparités et de l'historique de chacun . Comment définirez vous l'engagement du personnel de production?",
       options: [
@@ -181,7 +163,6 @@ const handledata = () => {
         { id: 3, text: "Engagé: ressent entre une partie vitale de l'entreprise ;sentiment d'accomplissement dans ses taches . L'engagement des employés est accepté pour aider à se conformer à la réglementation .elaboration des procédures en matière de sécurité des aliments avec la participation du personnel à qui on offre la possibilité de commenter une fois terminée", isCorrect: false },
         { id: 4, text: "Principalement désengagé : travaillant principalement par crainte de perdre son emploi : pas particulierement satisfait ni enthousiasmé par ses tâches.", isCorrect: false },
       ],
-      cat:"Personnel",
     },{
       text: "D'après vous l'engagement de la direction en matière de sécurité des aliments est il:",
       options: [
@@ -191,7 +172,6 @@ const handledata = () => {
         { id: 3, text: "en nette amélioration s'appyant sur des décisions successives et des projets qui ne sont pas directement demandés par les clients", isCorrect: false },
         { id: 4, text: "Conforme aux demandes explicites des clients et des autorités ", isCorrect: false },
       ],
-      cat:"Vision",
     },{
       text: "Au regard de la sécurité des aliments , comment la relation entre les parties prenentes (fournisseurs ,Agences d'inérime….) est-elle gérée?",
       options: [
@@ -201,7 +181,6 @@ const handledata = () => {
         { id: 3, text: "Les objectifs communs en matière de sécurité des aliments sont discutés afin d'étre en cohérence aussi bien sur des aspects pratiques (tenues , corps étrangers,….) que sur les valeurs.", isCorrect: false },
         { id: 4, text: "Aucun outil ou mécanisme n'est mis en place pour la surveillance de la conformité des accords avec les prestataires en matière de SA", isCorrect: false },
       ],
-      cat:"Cohérence",
     },{
       text: "Sur la dernière année; pourriez vous identifier le nombre de signalement de risque produits / non-conformité identifiée en production par les opérateurs?",
       options: [
@@ -211,7 +190,6 @@ const handledata = () => {
         { id: 3, text: "plus d'une vingtaine et ou très régulierement ", isCorrect: false },
         { id: 4, text: "Aucun signalement (malgré des NC identifiées lors d'audits internes / externes )", isCorrect: false },
       ],
-      cat:"Sensibilisation",
     },{
       text: "A quel stade de l'approche managériale des RH serez vous concernant la composante mission et adaptabilitré:",
       options: [
@@ -221,7 +199,6 @@ const handledata = () => {
         { id: 3, text: "Tous les aspects (attraction des talents ,développement , promotion ,mobilités, engagement et récompenses) sont liés les uns aux autres afin d'accroitre le rendement de l'entreprise . L'exploitationde talents interne devient plus faible . Les employés font preuve d'une grande responsabilité pour tirer part de ce que l'organisation fournit au travesr des RH", isCorrect: false },
         { id: 4, text: "Une stratégie globale d'apprentissage 'a minima' oriente les efforts de l'équipe des ressources humaines ,L'équipe des ressources humaines est en grande partie en mode 'réactif' pour les processus (recrutement , formation, intégration, conformité ,etc…) . Les RH sont perçues par les employés comme passifs pour faire progresser leur développement et leur carrière . Une grande partie des besoins en formation sont obligatoires.", isCorrect: false },
       ],
-      cat:"Adaptabilité",
     },{
       text: "En matière de sécurité des aliments ,quel serait le niveau de compréhension des risques par la direction et l'encadrement ?",
       options: [
@@ -231,7 +208,6 @@ const handledata = () => {
         { id: 3, text: "La directio et l'encadrement sont impliqués dans l'analyse de risque et la prise de décision concernant la SA. L'encadrement participe à toutes les sessions de formation liées aux risques et aux réunions de suivi des plans d'actions", isCorrect: false },
         { id: 4, text: "Le concept de la sécurité des aliments n'est pas intégré par la direction qui délégue entièrement au service qualité ", isCorrect: false },
       ],
-      cat:"Sensibilisation",
     },{
       text: "Comment placez vous l'implication des ressources humaines dans le processus de sécurité des aliments:",
       options: [
@@ -241,7 +217,6 @@ const handledata = () => {
         { id: 3, text: "Participent aux réunions pour l'évaluation des compétences et les retours d'information de la production / service qualité", isCorrect: false },
         { id: 4, text: "Assurant le suivi documentaire des formations hygiène ,font un suivi avec les agences d'intèrim et gérent la budget formation ", isCorrect: false },
       ],
-      cat:"Cohérence",
     },{
       text: "En matière d'implication du management et de l'encadrement , lequelle de ces affirmations serait la plus proche de la situation actuelle ?",
       options: [
@@ -251,7 +226,6 @@ const handledata = () => {
         { id: 3, text: "Les dirigents ont du mal à incarner des comportements modèles en matière de sécurité des aliments . Les mauvaises pratiques en matière de sécurité des aliments restent incontestées et aucun commentaire n'est fourni concernant les comportements en matière d'hygiène . par exemple la direction ne respecte pas les règles relatives aux vetements de protection.", isCorrect: false },
         { id: 4, text: "Manque d'initiative et de motivation de la part de l'entreprise -faible présence / direction de l'entreprise sur le lieu de travail en ce qui concerne la sécurité des aliments,sauf lors d'inspections ou d'audits externes ", isCorrect: false },
       ],
-      cat:"Cohérence",
     },{
       text: "Comment percevez-vous de manière globale,la capacité de vos employés dans la gestion des changements , des crises et dans la résolution des problèmes liés à la sécurité des aliments:",
       options: [
@@ -261,7 +235,6 @@ const handledata = () => {
         { id: 3, text: "Les agents de maitrise assurent de manière réactive les adaptations ou les gestions de crises mais pas au niveau personnel de production", isCorrect: false },
         { id: 4, text: "Certains employés ont montré des capacités à s'adapter aux changements rapides mais une majorité (encadrement de terrain inclus ) évitent les initiatives", isCorrect: false },
       ],
-      cat:"Adaptabilité",
     },{
       text: "Comment qualifieriez vous la compréhension par les employés des responsabilités et des autorités en matière de sècurité des aliments?",
       options: [
@@ -271,7 +244,6 @@ const handledata = () => {
         { id: 3, text: "Les fiches des postes indiquent les étapes à assurer pour la bonne conduite des opérations et les controles spécifiques (HACCP,Hygiène ). En cas de déviations , il y a devoir d'informations à la hiérarchie", isCorrect: false },
         { id: 4, text: "Les controles et les opérations à effectuer ont été définis , l'encadrement et le service qualité orienter en cas de besoins .Si les activités ne sont pas décrites aucune action / intervention ne doit etre assurée.", isCorrect: false },
       ],
-      cat:"Cohérence",
     },{
       text: "Combien pourriez vous citer d'actions / décisions confirmant les valeurs en matière de sécurité des aliments (investissement, changement , organisation , relations clients , gammes de produits….)?",
       options: [
@@ -281,7 +253,6 @@ const handledata = () => {
         { id: 3, text: "3 à 5", isCorrect: false },
         { id: 4, text: "1 ou 2", isCorrect: false },
       ],
-      cat:"Vision",
     },{
       text: "Quel serait le niveau d'agilité de votre système en place ?",
       options: [
@@ -291,7 +262,6 @@ const handledata = () => {
         { id: 3, text: "Classique : Affichage , déclaration 'qualité' comme demandé par les normes", isCorrect: false },
         { id: 4, text: "Adapté : Diffusion par plusieurs canaux officiels et informels ,explicite concernant les objectifs / valeur et les indicateurs de terrain ", isCorrect: false },
       ],
-      cat:"Adaptabilité",
     },{
       text: "Parmi ces indicateurs quels sont ceux dont vous disposez pour le suivi de la Culture du risque ?",
       options: [
@@ -301,7 +271,6 @@ const handledata = () => {
         { id: 3, text: "Conformité inspection hygiène / réclamations / nombre de presqu'incidents / lames de surfaces ", isCorrect: false },
         { id: 4, text: "Conformité inspection hygiène / réalisation formation / non conformités interne / réclamations ", isCorrect: false },
       ],
-      cat:"Sensibilisation",
     },{
       text: "Quelle est la position au regard du système de récompense concernant les bonnes pratiques en sécurité des aliments?",
       options: [
@@ -311,38 +280,16 @@ const handledata = () => {
         { id: 3, text: "Une politique de reconnaissance reconnue comme juste et transparente est mise en place vaec un volet spécifique pour la SA", isCorrect: false },
         { id: 4, text: "Ploitique de reconnaissance très générale sur plusieurs aspects (productivités, réclamation….) mais assez transparente ( non individialisée)", isCorrect: false },
       ],
-      cat:"Personnel",
     },
   ];
 
   // Helper Functions
 
   /* A possible answer was clicked */
-  const optionClicked = (isCorrect,cat) => {
+  const optionClicked = (isCorrect) => {
     // Increment the score
     if (isCorrect) {
       setScore(score + 1);
-    
-if(cat=="Vision"){
- SetVision(Vision+1)
- console.log(Vision)
-}
-if(cat=="Cohérence"){
-  SetCohérence(Cohérence+1)
-  console.log(Cohérence)
-}
-if(cat=="Personnel"){
-  SetPersonnel(Personnel+1)
-  console.log(Personnel)
-}
-if(cat=="Adaptabilité"){
-  SetAdaptabilité(Adaptabilité+1)
-  console.log(Adaptabilité)
-}
-if(cat=="Sensibilisation"){
-  SetSensibilisation(Sensibilisation+1)
-  console.log(Sensibilisation)
-}
     }
 
     
@@ -408,6 +355,14 @@ if(cat=="Sensibilisation"){
 
   return (
     <div>
+      <GaugeChart id="gauge-chart2" 
+                           colors={['#FF5F6D', '#FFC371','#25CF00']}
+                           
+  nrOfLevels={20} 
+  percent={  score / questions.length} 
+  needleColor="grey"
+  textColor="blue"
+/>     
         <div style={{height:"15px",backgroundColor:"#177985"}}></div>
     <div style={{backgroundImage: 
  "url('images/cheese6.png')",
@@ -442,14 +397,7 @@ if(cat=="Sensibilisation"){
           <h2 style={{color:"white",backgroundColor:"#177985"}}>
             {score} corrects sur {questions.length} correct - (
             {(score / questions.length) * 100}%)
-          </h2></td><td>  <td style={{width:"200px",height:'200px'}} rowSpan={5}> <GaugeChart id="gauge-chart2" 
-                           colors={['#FF5F6D', '#FFC371','#25CF00']}
-                           
-  nrOfLevels={20} 
-  percent={  score / questions.length} 
-  needleColor="grey"
-  textColor="blue"
-/>               </td></td></tr></center></table>
+          </h2></td><td>  <td style={{width:"200px",height:'200px'}} rowSpan={5}>           </td></td></tr></center></table>
           
           <div >
                     <Table className=' responsivetable table-striped table-hover table-bordered' style={{backgroundColor:"#EDEDED",width:"95%",marginLeft:"2%"}}>
@@ -470,40 +418,40 @@ if(cat=="Sensibilisation"){
                            
                             
                           <td>{QST[1]}</td><td>{QST[0]}</td></tr>
-                          <tr><td>{QST[4]}</td><td>{QST[3]}</td></tr>
+                          <tr><td>{QST[3]}</td><td>{QST[2]}</td></tr>
+                          <tr><td>{QST[5]}</td><td>{QST[4]}</td></tr>
                           <tr><td>{QST[7]}</td><td>{QST[6]}</td></tr>
-                          <tr><td>{QST[10]}</td><td>{QST[9]}</td></tr>
                           <tr>
                            
                             
                             
-                          <td>{QST[13]}</td><td>{QST[12]}</td></tr>
-                          <tr><td>{QST[16]}</td><td>{QST[15]}</td></tr>
+                          <td>{QST[9]}</td><td>{QST[8]}</td></tr>
+                          <tr><td>{QST[11]}</td><td>{QST[10]}</td></tr>
+                          <tr><td>{QST[13]}</td><td>{QST[12]}</td></tr>
+                          <tr><td>{QST[15]}</td><td>{QST[14]}</td></tr>
+                          <tr>
+                           
+                           
+                          <td>{QST[17]}</td><td>{QST[16]}</td></tr>
                           <tr><td>{QST[19]}</td><td>{QST[18]}</td></tr>
-                          <tr><td>{QST[22]}</td><td>{QST[21]}</td></tr>
+                          <tr><td>{QST[21]}</td><td>{QST[20]}</td></tr>
+                          <tr><td>{QST[23]}</td><td>{QST[22]}</td></tr>
                           <tr>
                            
-                           
+                            
+                            
                           <td>{QST[25]}</td><td>{QST[24]}</td></tr>
-                          <tr><td>{QST[28]}</td><td>{QST[27]}</td></tr>
+                          <tr><td>{QST[27]}</td><td>{QST[26]}</td></tr>
+                          <tr><td>{QST[29]}</td><td>{QST[28]}</td></tr>
                           <tr><td>{QST[31]}</td><td>{QST[30]}</td></tr>
-                          <tr><td>{QST[34]}</td><td>{QST[33]}</td></tr>
-                          <tr>
-                           
-                            
-                            
-                          <td>{QST[37]}</td><td>{QST[36]}</td></tr>
-                          <tr><td>{QST[40]}</td><td>{QST[39]}</td></tr>
-                          <tr><td>{QST[43]}</td><td>{QST[42]}</td></tr>
-                          <tr><td>{QST[46]}</td><td>{QST[45]}</td></tr>
                           <tr>
                            
                             
                            
-                          <td>{QST[49]}</td><td>{QST[48]}</td></tr>
-                          <tr><td>{QST[52]}</td><td>{QST[51]}</td></tr>
-                          <tr><td>{QST[55]}</td><td>{QST[54]}</td></tr>
-                          <tr><td>{QST[58]}</td><td>{QST[57]}</td></tr>
+                          <td>{QST[33]}</td><td>{QST[32]}</td></tr>
+                          <tr><td>{QST[35]}</td><td>{QST[34]}</td></tr>
+                          <tr><td>{QST[37]}</td><td>{QST[36]}</td></tr>
+                          <tr><td>{QST[39]}</td><td>{QST[38]}</td></tr>
                                      
                         </tbody>
                         
@@ -524,9 +472,9 @@ if(cat=="Sensibilisation"){
         <div className="quiz_box" >
           {/* Current Question  */}
           <header>
-          <div  style={{color:"#177985",fontSize:"25px",fontWeight:"bold"}}>{questions[currentQuestion].text}  </div>
+          <div class="title"style={{marginLeft:"93%"}}> <Timer time={time} /> </div>
           </header>
-          <h3 className="question-text"style={{textAlign: 'center'}}></h3>
+          <h3 className="question-text"style={{textAlign: 'center'}}>{questions[currentQuestion].text}</h3>
 
           {/* List of possible answers  */}
           <ul class="inline">
@@ -536,7 +484,8 @@ if(cat=="Sensibilisation"){
                         <li
                 style={{background: "aliceblue",
                   border: "1px solid #84c5fe",borderRadius:"5px", padding:" 8px 15px",
-                  fontSize: "17px",
+                  fontSize: "15.5px",
+                  fontWeight:"bold",
                   marginBottom: "15px",
                   cursor: "pointer",
                   transition: "all 0.3s ease",
@@ -551,7 +500,7 @@ if(cat=="Sensibilisation"){
                 >
                   
                   <table><tr><td>  <label class="container" style={{marginRight:"30px"}}>
-  <input type="radio"  name="Answer" id={i}  onClick={()=>(setQST(current => [...current, option.text,questions[currentQuestion].text,option.id]))+optionClicked(option.isCorrect,questions[currentQuestion].cat)}></input>
+  <input type="radio"  name="Answer" id={i}  onClick={()=>(setQST(current => [...current, option.text,questions[currentQuestion].text]))+console.log("QST",QST)+optionClicked(option.isCorrect)+handleColor()}></input>
   <span class="checkmark"></span>
 </label> </td><td> {option.text}</td></tr></table>
                   <div style={{color:"aliceblue",fontSize:'0px'}}>{i++}</div>
@@ -568,7 +517,7 @@ if(cat=="Sensibilisation"){
 
             </div>
            
-          
+            <Button variant="warning"  onClick={() => setShowResults(true)+handletimer()+handledata()}>Terminer</Button>
 
           <Button variant="success"  onClick={() =>next()+radio()}>Suivant</Button>
           <div id="BT" style={{display: 'none' }}>

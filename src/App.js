@@ -15,7 +15,7 @@ return (
 	<BrowserRouter>
 	<Routes>
 		<Route exact path="/" element={<Home/>}/>
-		<Route exact path="/about" element={<About/>}/>
+		<Route exact path="/Quiz" element={<About/>}/>
 		<Route exact path="/Info" element={<InfoPage/>}/>
 		<Route exact path="/Rapport" element={<Chart/>}/>
 		<Route exact path="/Password" element={<Pass/>}/>

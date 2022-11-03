@@ -33,19 +33,25 @@ export default function Home () {
   
   return (
 	<div >
-    <div style={{height:"15px",backgroundColor:"#177985"}}></div>
+   <div style={{height:"15px",backgroundColor:"#177985"}}></div>
            <div style={{backgroundImage: 
  "url('images/cheese6.png')",
- height:'11vh',
+ height:'70px',
 
         marginTop:'0px',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'}}> 
-      <table style={{width:"95%",marginLeft:"50px",marginBottom:"20px"}}><tr><td>        <img alt="img1" src="images/logo1.png" style={{width:"50%",height:"50px"}} ></img>
-</td><td>        <Navbar/>
+      <table style={{width:"90%",marginLeft:"50px",marginBottom:"20px"}}><tr><td>        <img alt="img1" src="images/iat.png" style={{width:"70%",height:"50px"}} ></img>
+</td><td style={{marginLeft:'30%'}}>        <Navbar/>
 </td></tr></table></div>
-<div style={{backgroundColor:"#177985",height:"120px"}}><center><h2  style={{color:"white",paddingTop:"25px"}}>Food Safety Culture : Auto-évaluation
-</h2><h3 style={{color:"white"}}>Culture Sécurité des Aliments</h3></center></div>
+<div style={{backgroundColor:"#177985",height:"120px"}}><center><h3  style={{color:"white",paddingTop:"25px"}}>Food Safety Culture : Auto-évaluation
+</h3><h3 style={{color:"white"}}>Culture Sécurité des Aliments</h3></center></div>
+<div  style={{backgroundImage: 
+        "url('images/cheese2.jpg')",
+               height:'110vh',
+               marginTop:'0px',
+               backgroundSize: 'cover',
+               backgroundRepeat: 'no-repeat'}}>
 <div style={{backgroundImage: 
  "url('images/cheese2.jpg')",
         height:'100%',
@@ -64,7 +70,7 @@ export default function Home () {
           <div
             className="slide"
             key={index}>
-            <img alt="img1" src={images} style={{width:"90%",height:"300px"}} ></img>
+            <img alt="img1" src={images} style={{width:"90%",height:"400px"}} ></img>
           </div>
         ))}
       </div>
@@ -88,9 +94,9 @@ export default function Home () {
         <br></br>
        
         </div>
-  
+        <img alt="img1" src="images/chef6.gif" style={{width:"50%",height:"200px",borderRadius:'20px'}} ></img>    </div>
+    
     </div>
-
 	</div>
 
   )
