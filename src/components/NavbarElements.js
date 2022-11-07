@@ -11,7 +11,7 @@ z-index: 12;
 
 export const NavLink = styled(Link)`
 color: Black;
-font-size:30px
+font-size:100px
 font-weight:bold
 display: flex;
 text-decoration: none;
@@ -19,7 +19,7 @@ padding: 0 0.5rem;
 height: 100%;
 cursor: pointer;
 &.active {
-	color: #000000;
+	color: red;
 }
 `;
 

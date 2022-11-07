@@ -21,13 +21,13 @@ export default function Pass () {
     <div>   <div style={{height:"15px",backgroundColor:"#177985"}}></div>
     <div style={{backgroundImage: 
 "url('images/cheese6.png')",
-height:'11vh',
-
+height:'70px',
+maxHeight:'80px',
  marginTop:'0px',
  backgroundSize: 'cover',
  backgroundRepeat: 'no-repeat'}}> 
-<table style={{width:"90%",marginLeft:"50px",marginBottom:"20px"}}><tr><td>        <img alt="img1" src="images/iat.png" style={{width:"50%",height:"50px"}} ></img>
-</td><td>        <Navbar/>
+<table style={{width:"90%",marginLeft:"50px",marginBottom:"20px"}}><tr><td>        <img alt="img1" src="images/iat.png" style={{width:"70%",height:"50px",cursor:"pointer"}}onClick={()=>navigate("/")} ></img>
+</td><td style={{float:"right",marginTop:"20px"}}>        <Navbar/>
 </td></tr></table></div>
 <div style={{backgroundColor:"#177985",height:"120px"}}><center><h3  style={{color:"white",paddingTop:"25px"}}>Food Safety Culture : Auto-évaluation
 </h3><h3 style={{color:"white"}}>Culture Sécurité des Aliments</h3></center></div>

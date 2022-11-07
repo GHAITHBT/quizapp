@@ -15,8 +15,8 @@ return (
 		
 
 		<NavMenu>
-		<NavLink to='/' activeStyle>
-			<h6>Acceuil </h6>
+		<NavLink to='/' >
+			<h6 style={{color:"blue"}}>Acceuil </h6>
 		</NavLink>
 		<NavLink to='/Nos_Valeurs' activeStyle>
 			<h6>Nos Valeurs </h6>

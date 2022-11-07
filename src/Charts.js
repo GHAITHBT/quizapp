@@ -8,8 +8,11 @@ import PieChart from "./charts/PieChart";
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components';
+import { useNavigate } from "react-router-dom";
 
 export const Chart=()=> {
+  const navigate = useNavigate();
+
   const [Data, setData] = useState([]);
   const [DataAR, setDataAR] = useState([]);
   const [ViewPostfour, SetPostShowfour] = useState(false)
@@ -25,7 +28,7 @@ var nbp3=0
 const [QSTREP, setQSTREP] = useState([10]);
 const GetEmployeeData = () => {
     //here we will get all employee data
-    const url = 'http://localhost:5001/data'
+    const url = 'https://fsc-express-server.herokuapp.com/data'
     axios.get(url)
     
         .then(response => {
@@ -1006,83 +1009,116 @@ nbre4q20=nbre4q20+1;
   )
 
 }
-function nbPOSdssd  () {
+function nbPS  () {
+  var nbs10=0
+  var nbi10=0
+  var nbs15=0
+  var nbs18=0
+  var nbe20=0
   Data.forEach(element => {
     
-    if(element.score>=10){
-nbps10++
-    }
-    if(element.score>=18){
-      nbps18++
-          }
+    if(element.score<10){
+nbi10=nbi10+1    }
+   
           if(element.score==20){
-            nbp20++
+            nbe20=nbe20+1
                 }
-                if(element.score<10){
-                  nbpi10++
+                if(element.score>=10 && element.score<15){
+                  nbs10=nbs10+1
                       }
+                      if(element.score>14 && element.score<=19){
+                        nbs15=nbs15+1
+                            }
     
   });
   const data = {
-    labels: ["<10",">=10",">=18","=20"], // first change
+    labels: ["Score inférieur à 10","Score entre 10 et 14"," Score entre 15 et 19","Score égale à 20"], // first change
     datasets: [{
-      label: 'nombre participants selon leurs poste de travaille',
-      fill: false,
+      label: 'Nombre de participants selon leur score',
+      fill: true,
       lineTension: 0.0,
       backgroundColor:   [
-        "#007bff",
-        "#ffc107",
-        "#dc3545",
-        "#4f81bd",
+        "red",
+        "yellow",
+        "green",
+        "purple",
         "#28a745",],
       pointHitRadius: 20,
-      data:[nbpi10,nbps10,nbps18,nbp20] // second change
+      data:[nbi10,nbs10,nbs18,nbe20] // second change
     }]
   }; 
   return(
     <div style={{width:"300px",height:"300px"}}>           <PieChart chartData={data}></PieChart>
-    <BarChart chartData={data}></BarChart>
+   
 
     </div>
   )
 
 }
-function ResGen  () {
+function NBP  () {
+  var p1=0
+  var p2=0
+  var p3=0
+  var p4=0
+  var p5=0
+  var p6=0
+  var p7=0
+  var p8=0
+  var p9=0
+  var p10=0
   Data.forEach(element => {
     
-    if(element.score>=10){
-nbps10++
+    if(element.Poste=="Directeur"){
+p1=p1+1
     }
-    if(element.score>=18){
-      nbps18++
+    if(element.Poste=="Responsable"){
+      p2=p2+1
           }
-          if(element.score==20){
-            nbp20++
+          if(element.Poste=="Chef service"){
+            p3=p3+1
                 }
-                if(element.score<10){
-                  nbpi10++
+                if(element.Poste=="Chef d'atelier"){
+                  p4=p4+1
                       }
+                      if(element.Poste=="Chef d'équipe"){
+                        p5=p5+1
+                            }
+                            if(element.Poste=="Conducteur"){
+                              p6=p6+1
+                                  }
+                                  if(element.Poste=="Conductrice"){
+                                    p7=p7+1
+                                        }
+                                        if(element.Poste=="Opérateur"){
+                                          p8=p8+1
+                                              }
+                                              if(element.Poste=="Magasinier"){
+                                                p9=p9+1
+                                                    }
+                                                    if(element.Poste=="Technicien maintenance"){
+                                                      p10=p10+1
+                                                          }
+    
     
   });
   const data = {
-    labels: ["<10",">=10",">=18","=20"], // first change
+    labels: ["Directeur","Responsable","Chef service","Chef d'atelier","Chef d'équipe","Conducteur","Conductrice","Opérateur","Magasinier","Technicien maintenance"], // first change
     datasets: [{
-      label: 'nombre participants selon leurs poste de travaille',
+      label: 'Nombre de participants selon leur poste de travail',
       fill: false,
       lineTension: 0.0,
       backgroundColor:   [
-        "#007bff",
+        "#177985",'#770055', '#f58231', '#46f0f0', '#bcf60c',"#787878",
         "#ffc107",
         "#dc3545",
-        "#4f81bd",
+        "#0051bd",
         "#28a745",],
       pointHitRadius: 20,
-      data:[nbpi10,nbps10,nbps18,nbp20] // second change
+      data:[p1,p2,p3,p4,p5,p6,p7,p8,p9,p10] // second change
     }]
   }; 
   return(
     <div style={{width:"300px",height:"300px"}}>           <PieChart chartData={data}></PieChart>
-    <BarChart chartData={data}></BarChart>
 
     </div>
   )
@@ -1133,7 +1169,7 @@ if((VGEN+CGEN+PGEN+AGEN+SGEN)/5>49 && (VGEN+CGEN+PGEN+AGEN+SGEN)/5<=79){
   const data = {
     labels: ["Vision (Générale) %","Cohérence (Générale) %","Personnel (Générale) %","Adaptabilité (Générale) %","Sensiblisation (Générale) %"], // first change
     datasets: [{
-      label: '',
+      label: 'Score pour chaque pilier',
       fill: false,
       lineTension: 0.0,
       backgroundColor:   [
@@ -1149,7 +1185,7 @@ if((VGEN+CGEN+PGEN+AGEN+SGEN)/5>49 && (VGEN+CGEN+PGEN+AGEN+SGEN)/5<=79){
   return(
     <div style={{width:"80%",height:"350px"}}> 
 
-   <table ><tr><td style={{width:"50%"}}><BarChart chartData={data} ></BarChart></td><td style={{width:"50%"}} ><div style={{color:"#177985",fontWeight:'bold',fontSize:'20px'}}>Score : {(VGEN+CGEN+PGEN+AGEN+SGEN)/5}</div><span style={{color:`${col}`,fontWeight:"bold",fontSize:'20px'}}>=>{Resultat}</span></td></tr> </table>
+   <table ><tr><td style={{width:"50%"}}><BarChart chartData={data} ></BarChart></td><td style={{width:"50%"}} ><div style={{color:"#177985",fontWeight:'bold',fontSize:'20px'}}>Score : {(VGEN+CGEN+PGEN+AGEN+SGEN)/5}</div><span style={{color:`${col}`,fontWeight:"bold",fontSize:'20px'}}> {'=>'}{Resultat}</span></td></tr> </table>
    
     </div>
   )
@@ -1160,7 +1196,7 @@ function StatCAt  (V,C,P,A,S) {
   const data = {
     labels: ["Vision %","Cohérence %","Personnel %","Adaptabilité %","Sensiblisation %"], // first change
     datasets: [{
-      label: '',
+      label: 'Score pour chaque pilier',
       fill: false,
       lineTension: 0.0,
       backgroundColor:   [
@@ -1198,20 +1234,23 @@ const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear
      <div style={{height:"15px",backgroundColor:"#177985"}}></div>
      <div style={{backgroundImage: 
  "url('images/cheese6.png')",
- height:'11vh',
-
+ height:'70px',
+ maxHeight:'80px',
         marginTop:'0px',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'}}> 
-      <table style={{width:"90%",marginLeft:"50px",marginBottom:"20px"}}><tr><td>        <img alt="img1" src="images/iat.png" style={{width:"50%",height:"50px"}} ></img>
-</td><td>        <Navbar/>
+      <table style={{width:"90%",marginLeft:"50px",marginBottom:"20px"}}><tr><td>        <img alt="img1" src="images/iat.png" style={{width:"70%",height:"50px",cursor:"pointer"}} onClick={()=>navigate("/")}></img>
+</td><td style={{float:"right",marginTop:"20px"}}>        <Navbar/>
 </td></tr></table></div>
 <div style={{backgroundColor:"#177985",height:"120px"}}><center><h3  style={{color:"white",paddingTop:"25px"}}>Food Safety Culture : Auto-évaluation
 </h3><h3 style={{color:"white"}}>Culture Sécurité des Aliments</h3></center></div>
 <div><center>{StatPilier()}</center></div>
-<h3 style={{backgroundColor:"white"}}>Nombre de participants {Data.length}</h3>
-<Table className=' responsivetable table-striped table-hover table-bordered table-light'><tr>
-  <td style={{'height': `100%` , 'overflow':'Scroll', 'display': 'block'}}><Table className=' responsivetable table-striped table-hover table-bordered'>
+<Table className=' responsive-table table-striped table-hover table-bordered table-warning'>
+  <tr><td colSpan={2}><center><h3 >Nombre de participants : {Data.length}</h3></center>
+</td></tr>
+<tr><td><center><h4>Résultat de chaque participant</h4></center></td><td><center> <h4>Nombre de réponses par question</h4></center></td></tr>
+  <tr>
+  <td style={{'height': `870px` , 'overflow':'Scroll', 'display': 'block'}}><Table className=' responsive-table table-striped table-hover table-bordered table-info'>
   <tr><th><center>Poste</center></th>
 <th colSpan={2}><center>Score</center></th>
 <th><center>Vision</center></th>
@@ -1222,7 +1261,7 @@ const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear
                             {Data?.map((item) =>
                                 <tr >
                                   <td style={{border:"1px"}}>{item.Poste}</td>
-                                    <td>{item.score}</td>
+                                    <td>{item.score}/20</td>
                                     <td> {(item.score / 20) * 100}%</td>
                                     <td>{StatCAt(item.Vision/4*100,item.Cohérence/4*100,item.Personnel/4*100,item.Adaptabilité/4*100,item.Sensibilisation/4*100)}</td>
                                     
@@ -1235,9 +1274,11 @@ const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear
   
   
   
-  </Table></td><td>{nbPOS()}</td></tr></Table>
-<hr></hr>
-<div></div>
+  </Table></td><td>{nbPOS()}</td></tr>
+  <tr><td><center><h4>Nombre de participants selon leur poste de travail</h4></center></td><td><center><h4>Nombre de participants selon leur Score</h4></center></td></tr>
+  <tr><td><div><center>{NBP()}</center></div></td><td><div><center>{nbPS()}</center></div></td></tr>
+  </Table>
+
 
 
 

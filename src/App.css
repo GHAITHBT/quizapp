@@ -26,6 +26,7 @@
                 width: 85%;
                 background: rgb(255, 255, 255);
                 border-radius: 5px;
+                
                
 }
 .inline li:hover{
@@ -390,18 +391,18 @@ button {
   margin: 0 auto;
   overflow: hidden;
   max-width: 100%;
-  max-height: 600px;
+  max-height: 400px;
 }
 
 .slideshowSlider {
   white-space: nowrap;
-  transition: ease 1000ms;
+  transition:  2500ms;
 }
 
 .slide {
   display: inline-block;
 
-  height: 600px;
+  height: 400px;
   width: 100%;
   border-radius: 40px;
 }

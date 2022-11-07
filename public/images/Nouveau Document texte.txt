@@ -16,6 +16,67 @@ style={{backgroundImage:
   <img alt="img1" src="images/quiz.png" style={{width:"100%",height:"170px",cursor:"pointer"}} onClick={()=>navigate("/Info")} ></img>
   </div>
 </div>
+/**********************************************/
+ 
+          <div >
+                    <Table className=' responsivetable table-striped table-hover table-bordered' style={{backgroundColor:"#EDEDED",width:"95%",marginLeft:"2%"}}>
+                        <thead style={{backgroundColor:"#177985",color:"white"}}>
+                            <tr>
+                                <th style={{width:"50%"}}><center>Question</center>
+                               
+                                
+                                </th>
+                                <th style={{width:"50%"}}><center>Votre réponce </center>
+                                </th>
+                              
+                            </tr>
+                        </thead>
+                        <tbody>
+             
+                          <tr>
+                           
+                            
+                          <td>{QST[1]}</td><td>{QST[0]}</td></tr>
+                          <tr><td>{QST[4]}</td><td>{QST[3]}</td></tr>
+                          <tr><td>{QST[7]}</td><td>{QST[6]}</td></tr>
+                          <tr><td>{QST[10]}</td><td>{QST[9]}</td></tr>
+                          <tr>
+                           
+                            
+                            
+                          <td>{QST[13]}</td><td>{QST[12]}</td></tr>
+                          <tr><td>{QST[16]}</td><td>{QST[15]}</td></tr>
+                          <tr><td>{QST[19]}</td><td>{QST[18]}</td></tr>
+                          <tr><td>{QST[22]}</td><td>{QST[21]}</td></tr>
+                          <tr>
+                           
+                           
+                          <td>{QST[25]}</td><td>{QST[24]}</td></tr>
+                          <tr><td>{QST[28]}</td><td>{QST[27]}</td></tr>
+                          <tr><td>{QST[31]}</td><td>{QST[30]}</td></tr>
+                          <tr><td>{QST[34]}</td><td>{QST[33]}</td></tr>
+                          <tr>
+                           
+                            
+                            
+                          <td>{QST[37]}</td><td>{QST[36]}</td></tr>
+                          <tr><td>{QST[40]}</td><td>{QST[39]}</td></tr>
+                          <tr><td>{QST[43]}</td><td>{QST[42]}</td></tr>
+                          <tr><td>{QST[46]}</td><td>{QST[45]}</td></tr>
+                          <tr>
+                           
+                            
+                           
+                          <td>{QST[49]}</td><td>{QST[48]}</td></tr>
+                          <tr><td>{QST[52]}</td><td>{QST[51]}</td></tr>
+                          <tr><td>{QST[55]}</td><td>{QST[54]}</td></tr>
+                          <tr><td>{QST[58]}</td><td>{QST[57]}</td></tr>
+                                     
+                        </tbody>
+                        
+                    </Table>
+                   
+                </div>
           
           
           

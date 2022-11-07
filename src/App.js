@@ -7,6 +7,7 @@ import { Chart } from "./Charts";
 import Pass from "./pass";
 import PageValeurs from "./valeurs";
 import PagePiliers from "./PiliersPage";
+import Resultat from "./Resultat";
 function App() {
 	
 return ( 
@@ -21,6 +22,7 @@ return (
 		<Route exact path="/Password" element={<Pass/>}/>
 		<Route exact path="/Nos_Valeurs" element={<PageValeurs />}/>
 		<Route exact path="/Piliers" element={<PagePiliers />}/>
+		<Route exact path="/Resultat" element={<Resultat />}/>
 
 
 

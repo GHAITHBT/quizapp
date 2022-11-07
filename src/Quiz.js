@@ -1,15 +1,22 @@
 import React, { useState,useEffect } from "react";
 import "./App.css";
 import axios from "axios";
-import { Button, Modal, ModalTitle,Table } from 'react-bootstrap'
+import { Button, Modal, ModalFooter, ModalTitle,Table } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import moment from "moment";
 import GaugeChart from 'react-gauge-chart'
 import Navbar from "./components";
 import Timer from "./Timer";
+import { useNavigate } from "react-router-dom";
+import { click } from "@testing-library/user-event/dist/click";
 
 
 function About() {
+  const [ViewShow, SetViewShow] = useState(false)
+  const handleViewShow = () => { SetViewShow(true) }
+  const hanldeViewClose = () => { SetViewShow(false) }
+  const navigate = useNavigate();
+
   var now  = " 15:00:00";
 var then = " 14:20:00";
 
@@ -29,8 +36,9 @@ const [time, setTime] = useState(0);
    const [repo, setRepo] = useState("");
    const [QST, setQST] = useState([]);
 const handledata = () => {
-    const url = `http://localhost:5001/add_data`
+    const url = `https://fsc-express-server.herokuapp.com/add_data`
     const Credentials = { Poste,QST,score,time,Vision,Cohérence,Personnel,Adaptabilité,Sensibilisation}
+
     axios.post(url, Credentials)
         .then(response => {
             const result = response.data;
@@ -82,7 +90,7 @@ const handledata = () => {
     console.log("finishc time",timeFinish);
     console.log("timer",timer)
     settimeFinish(`${current.getHours()}:${current.getMinutes()}:${current.getSeconds()}`)
-    console.log(repo)
+    console.log("Reponse",repo)
     console.log(Poste)
     console.log(QST)
     console.log(Vision)
@@ -90,6 +98,8 @@ const handledata = () => {
     console.log(Personnel)
     console.log(Adaptabilité)
     console.log(Sensibilisation)
+    console.log("score",score)
+
     setPoste(localStorage.getItem("Poste"))
     let interval = null;
 
@@ -103,17 +113,17 @@ const handledata = () => {
 	return () => {
 	clearInterval(interval);
 	};
-  }, [timeStart,timeFinish,repo,Poste,QST,timer,isActive,isPaused,Vision,Personnel,Cohérence,Adaptabilité,Sensibilisation]);
+  }, [timeStart,timeFinish,repo,Poste,QST,timer,isActive,isPaused,Vision,Personnel,Cohérence,Adaptabilité,Sensibilisation],score);
 
   const questions = [
     {
       text: "Le message et/ou la  communication sur les aspects santé et sécurité des aliments de nos produits finis se définit comme :",
       options: [
         { id: 0, text: "Innovant, utilisation des méthodes et outils modernes  (réseaux sociaux internes , intranet , implication de tous dans la diffusion du message) , s'appuie sur les leaders d'opinion internes, va au déla de la vie d'entreprise en intégrant des valeurs 'responsables' de l'entreprise et des parties intéressées", isCorrect: false },
-        { id: 1, text: "Evolutif : Affichage général ,rappel des consignes en cas de réclamations ", isCorrect: false },
+        { id: 1, text: "Evolutif : Affichage général ,rappel des consignes en cas de réclamations ", isCorrect: true },
         { id: 2, text: "Participatif : en plus de l'affichage ,réunions d'équipe regulieres avec les rappels des faits marquants et suivi par l'encadrement terrain", isCorrect: false },
         { id: 3, text: "Classique : Affichage , déclaration 'qualité' comme demandé par les normes", isCorrect: true },
-        { id: 4, text: "Adapté : Diffusion par plusieurs canaux officiels et informels ,explicite concernant les objectifs / valeur et les indicateurs de terrain ", isCorrect: true },
+        { id: 4, text: "Adapté : Diffusion par plusieurs canaux officiels et informels ,explicite concernant les objectifs / valeur et les indicateurs de terrain ", isCorrect: false },
         
       ],
       cat:"Vision",
@@ -121,8 +131,8 @@ const handledata = () => {
     {
       text: "En quoi consiste la formation des employés sur les dangers et les risques en matière des sécurités des aliments ?",
       options: [
-        { id: 0, text: "Au déla des bases sur les bonnes pratiques , des cas concrets sont abordés et des mises en situations permettant d'évaluer la bonne compréhension des risques, les employés apportent eux-mêmes des éléments supplémentaires pour alimenter les formations en y intégrant de nouveaux risques détectés", isCorrect: true },
-        { id: 1, text: "Tous les membres du personnel ne sont pas obligés d'assister et il existe peu d'enregistrements sur les formations réaliséses (Pas de test formel de compétence et de la compréhension)", isCorrect: false },
+        { id: 0, text: "Au déla des bases sur les bonnes pratiques , des cas concrets sont abordés et des mises en situations permettant d'évaluer la bonne compréhension des risques, les employés apportent eux-mêmes des éléments supplémentaires pour alimenter les formations en y intégrant de nouveaux risques détectés", isCorrect: false },
+        { id: 1, text: "Tous les membres du personnel ne sont pas obligés d'assister et il existe peu d'enregistrements sur les formations réaliséses (Pas de test formel de compétence et de la compréhension)", isCorrect: true },
         { id: 2, text: "Un système formel de formation existe (formation initiale et de recyclage ), les employés comprennent les règles générales de la sécurité des aliments ,mais ne les respectent pas toujours.", isCorrect: false },
         { id: 3, text: "les programmes de formation sont adaptés en continu en fonction de l'évolution de l'équipe .Les bonnes pratiques sont largement suivies (selon des indicateurs documentés)", isCorrect: false },
         { id: 4, text: "Pas de formation ou formation à la conformité uniquement (BPH,principes généraux HACCP ,etc.)", isCorrect: false },
@@ -132,8 +142,8 @@ const handledata = () => {
     {
       text: "En terme de système d'alerte , laquelle des propositions suivantes serait la plus adaptée ?",
       options: [
-        { id: 0, text: "Il est vivement encourgé de faire remonter les déviations à tous les niveaux de la hièarchie et des revues réguliéires sont assurées pour démontrer le bon suivi de ces actions , le système anonyme ou non en fonction du degré est en place et fonctionnel.", isCorrect: true },
-        { id: 1, text: "Un système d'alerte a été mis en place à la demande de clients mais reste peu utilisé et plutôt formel.", isCorrect: false },
+        { id: 0, text: "Il est vivement encourgé de faire remonter les déviations à tous les niveaux de la hièarchie et des revues réguliéires sont assurées pour démontrer le bon suivi de ces actions , le système anonyme ou non en fonction du degré est en place et fonctionnel.", isCorrect: false },
+        { id: 1, text: "Un système d'alerte a été mis en place à la demande de clients mais reste peu utilisé et plutôt formel.", isCorrect: true },
         { id: 2, text: "Un outil d'alerte a été mis en place et un affichage en attente,toutefois il n'est pas bien vu dans l'entreprise de faire de la délation.", isCorrect: false },
         { id: 3, text: "Le personnel a pris l'habititude de remonter a ses responsables hiérarchiques ,toutes les activités déviantes de manière informelle et leur fait confiance pour le suivi.", isCorrect: false },
         { id: 4, text: "Pas de système de lanceur d'alerte en place les employés ne sont pas informés.", isCorrect: false },
@@ -321,7 +331,7 @@ const handledata = () => {
   const optionClicked = (isCorrect,cat) => {
     // Increment the score
     if (isCorrect) {
-      setScore(score + 1);
+      setScore(score + 1)
     
 if(cat=="Vision"){
  SetVision(Vision+1)
@@ -343,6 +353,7 @@ if(cat=="Sensibilisation"){
   SetSensibilisation(Sensibilisation+1)
   console.log(Sensibilisation)
 }
+
     }
 
     
@@ -383,10 +394,11 @@ if(cat=="Sensibilisation"){
   };
 
   /* Resets the game back to default */
-  const restartGame = () => {
-    setScore(0);
-    setCurrentQuestion(0);
-    setShowResults(false);
+  const click = () => {
+    
+    optionClicked(repo.isCorrect,questions[currentQuestion].cat)
+    setQST(current => [...current, repo.text,questions[currentQuestion].text,repo.id])
+    
   };
   function BT() {
     var x = document.getElementById("BT");
@@ -411,13 +423,13 @@ if(cat=="Sensibilisation"){
         <div style={{height:"15px",backgroundColor:"#177985"}}></div>
     <div style={{backgroundImage: 
  "url('images/cheese6.png')",
- height:'11vh',
-
+ height:'70px',
+ maxHeight:'80px',
         marginTop:'0px',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'}}> 
-      <table style={{width:"90%",marginLeft:"50px",marginBottom:"20px"}}><tr><td>        <img alt="img1" src="images/iat.png" style={{width:"50%",height:"50px"}} ></img>
-</td><td >        <Navbar/>
+      <table style={{width:"90%",marginLeft:"50px",marginBottom:"20px"}}><tr><td>        <img alt="img1" src="images/iat.png" style={{width:"70%",height:"50px",cursor:"pointer"}} onClick={()=>navigate("/")}></img>
+</td><td style={{float:"right",marginTop:"20px"}}>        <Navbar/>
 </td></tr></table></div>
 <div style={{backgroundColor:"#177985",height:"120px"}}><center><h3  style={{color:"white",paddingTop:"25px"}}>Food Safety Culture : Auto-évaluation
 </h3><h3 style={{color:"white"}}>Culture Sécurité des Aliments</h3></center></div>
@@ -433,14 +445,15 @@ if(cat=="Sensibilisation"){
         /* 4. Final Results */
         <div style={{backgroundImage: 
           "url('images/cheese6.jpg')",
-                 height:'100%',
+                 height:'100vh',
                  marginTop:'0px',
                  backgroundSize: 'cover',
                  backgroundRepeat: 'no-repeat',
                  width:"100%"}}>
+                         
                   <table   style={{width:"100 %",marginLeft:'20%'}}> <center><tr><td><h1 style={{color:"white",backgroundColor:"#177985"}}>Resultats Finale</h1>
           <h2 style={{color:"white",backgroundColor:"#177985"}}>
-            {score} corrects sur {questions.length} correct - (
+            {score} Réponses corrects sur {questions.length} - (
             {(score / questions.length) * 100}%)
           </h2></td><td>  <td style={{width:"200px",height:'200px'}} rowSpan={5}> <GaugeChart id="gauge-chart2" 
                            colors={['#FF5F6D', '#FFC371','#25CF00']}
@@ -450,70 +463,23 @@ if(cat=="Sensibilisation"){
   needleColor="grey"
   textColor="blue"
 />               </td></td></tr></center></table>
-          
-          <div >
-                    <Table className=' responsivetable table-striped table-hover table-bordered' style={{backgroundColor:"#EDEDED",width:"95%",marginLeft:"2%"}}>
-                        <thead style={{backgroundColor:"#177985",color:"white"}}>
-                            <tr>
-                                <th style={{width:"50%"}}><center>Question</center>
-                               
-                                
-                                </th>
-                                <th style={{width:"50%"}}><center>Votre réponce </center>
-                                </th>
-                              
-                            </tr>
-                        </thead>
-                        <tbody>
-             
-                          <tr>
-                           
-                            
-                          <td>{QST[1]}</td><td>{QST[0]}</td></tr>
-                          <tr><td>{QST[4]}</td><td>{QST[3]}</td></tr>
-                          <tr><td>{QST[7]}</td><td>{QST[6]}</td></tr>
-                          <tr><td>{QST[10]}</td><td>{QST[9]}</td></tr>
-                          <tr>
-                           
-                            
-                            
-                          <td>{QST[13]}</td><td>{QST[12]}</td></tr>
-                          <tr><td>{QST[16]}</td><td>{QST[15]}</td></tr>
-                          <tr><td>{QST[19]}</td><td>{QST[18]}</td></tr>
-                          <tr><td>{QST[22]}</td><td>{QST[21]}</td></tr>
-                          <tr>
-                           
-                           
-                          <td>{QST[25]}</td><td>{QST[24]}</td></tr>
-                          <tr><td>{QST[28]}</td><td>{QST[27]}</td></tr>
-                          <tr><td>{QST[31]}</td><td>{QST[30]}</td></tr>
-                          <tr><td>{QST[34]}</td><td>{QST[33]}</td></tr>
-                          <tr>
-                           
-                            
-                            
-                          <td>{QST[37]}</td><td>{QST[36]}</td></tr>
-                          <tr><td>{QST[40]}</td><td>{QST[39]}</td></tr>
-                          <tr><td>{QST[43]}</td><td>{QST[42]}</td></tr>
-                          <tr><td>{QST[46]}</td><td>{QST[45]}</td></tr>
-                          <tr>
-                           
-                            
-                           
-                          <td>{QST[49]}</td><td>{QST[48]}</td></tr>
-                          <tr><td>{QST[52]}</td><td>{QST[51]}</td></tr>
-                          <tr><td>{QST[55]}</td><td>{QST[54]}</td></tr>
-                          <tr><td>{QST[58]}</td><td>{QST[57]}</td></tr>
-                                     
-                        </tbody>
-                        
-                    </Table>
-                   
-                </div>
+
+<div class="card text-white bg-dark mb-3">
+        <center> <span style={{color:"white",fontSize:"40px",fontWeight:"bold"}}>Merci pour votre participation</span></center>
         </div>
+        <center><span style={{cursor:"pointer",color:"#177985",backgroundColor:"white",fontSize:"25px",fontWeight:"bold"}} onClick={()=>navigate("/")}>Retour à la page d'accueil</span></center>
+        
+
+        </div>
+        
       ) : (
         
-       <div style={{marginTop:"0px"}} >
+       <div style={{backgroundImage: 
+        "url('images/cheese2.jpg')",
+               height:'200vh',
+               marginTop:'0px',
+               backgroundSize: 'cover',
+               backgroundRepeat: 'no-repeat'}} >
          <div  style={{backgroundImage: 
  "url('images/cheese2.jpg')",
         height:'8vh',
@@ -551,7 +517,7 @@ if(cat=="Sensibilisation"){
                 >
                   
                   <table><tr><td>  <label class="container" style={{marginRight:"30px"}}>
-  <input type="radio"  name="Answer" id={i}  onClick={()=>(setQST(current => [...current, option.text,questions[currentQuestion].text,option.id]))+optionClicked(option.isCorrect,questions[currentQuestion].cat)}></input>
+  <input type="radio"  name="Answer" id={i}  onClick={()=>(setRepo(option)+console.log("reponse now",repo))}></input>
   <span class="checkmark"></span>
 </label> </td><td> {option.text}</td></tr></table>
                   <div style={{color:"aliceblue",fontSize:'0px'}}>{i++}</div>
@@ -567,19 +533,44 @@ if(cat=="Sensibilisation"){
           Question: {currentQuestion + 1} sur {questions.length}
 
             </div>
-           
-          
 
-          <Button variant="success"  onClick={() =>next()+radio()}>Suivant</Button>
+          <Button variant="success"  onClick={() =>next()+radio()+setQST(current => [...current, repo.text,questions[currentQuestion].text,repo.id])+optionClicked(repo.isCorrect,questions[currentQuestion].cat)}>Suivant</Button>
           <div id="BT" style={{display: 'none' }}>
 
-          <Button variant="warning"  onClick={() => setShowResults(true)+handletimer()+handledata()}>Terminer</Button>
+          <Button variant="warning"  onClick={() => handleViewShow(click())}>Terminer</Button>
           </div>
           </footer>
         </div>
         </div>
       )}
       </div>
+      <div className='model-box-view'>
+                <Modal
+                    show={ViewShow}
+                    onHide={hanldeViewClose}
+                    backdrop="static"
+                    keyboard={false}
+                    size={"m"}
+                >
+                    <Modal.Header >
+                        <Modal.Title>
+                        <span style={{color:"red",marginLeft:"0%",fontWeight:"bold"}}>Félicitations ! </span>
+                        </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                    <center> <span style={{marginLeft:"40px",fontWeight:"bold",padding:'5px',fontSize:"20px"}}>Vous avez terminé le questionnaire</span></center><br></br>
+                        
+                    </Modal.Body>
+                    <ModalFooter>
+                    <div>
+                       <center> <Button variant="info"  onClick={() =>setShowResults(true)+handledata()+hanldeViewClose()}> <b>Voir le résultat</b></Button></center>
+
+                          
+                        </div>
+                    </ModalFooter>
+                   
+                </Modal>
+            </div>
     </div>
     
   );

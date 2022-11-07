@@ -1,10 +1,10 @@
 import React from "react"
 import "./App.css";
-import {useNavigate} from "react-router-dom"
+import {Navigate, useNavigate} from "react-router-dom"
 import Navbar from "./components";
 export default function Home () {
   const navigate = useNavigate();
-  const images = ["images/PFSC1.jpeg", "images/chef6.gif"];
+  const images = ["images/PFSC1.jpeg", "images/bg.png"];
   const delay = 2500;
   
     const [index, setIndex] = React.useState(0);
@@ -37,12 +37,12 @@ export default function Home () {
            <div style={{backgroundImage: 
  "url('images/cheese6.png')",
  height:'70px',
-
+maxHeight:'80px',
         marginTop:'0px',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'}}> 
-      <table style={{width:"90%",marginLeft:"50px",marginBottom:"20px"}}><tr><td>        <img alt="img1" src="images/iat.png" style={{width:"70%",height:"50px"}} ></img>
-</td><td style={{marginLeft:'30%'}}>        <Navbar/>
+      <table style={{width:"90%",marginLeft:"50px",marginBottom:"20px"}}><tr><td>        <img alt="img1" src="images/iat.png" style={{width:"70%",height:"50px",cursor:"pointer"}} onClick={()=>Navigate("/")}></img>
+</td><td style={{float:"right",marginTop:"20px"}}>        <Navbar/>
 </td></tr></table></div>
 <div style={{backgroundColor:"#177985",height:"120px"}}><center><h3  style={{color:"white",paddingTop:"25px"}}>Food Safety Culture : Auto-évaluation
 </h3><h3 style={{color:"white"}}>Culture Sécurité des Aliments</h3></center></div>
@@ -70,7 +70,7 @@ export default function Home () {
           <div
             className="slide"
             key={index}>
-            <img alt="img1" src={images} style={{width:"90%",height:"400px"}} ></img>
+            <img alt="img1" src={images} style={{width:"90%",height:"350px"}} ></img>
           </div>
         ))}
       </div>
@@ -94,7 +94,8 @@ export default function Home () {
         <br></br>
        
         </div>
-        <img alt="img1" src="images/chef6.gif" style={{width:"50%",height:"200px",borderRadius:'20px'}} ></img>    </div>
+        <center>
+        <img alt="img1" src="images/chef6.gif" style={{width:"40%",height:"200px",borderRadius:'20px'}} ></img>   </center> </div>
     
     </div>
 	</div>
