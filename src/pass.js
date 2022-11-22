@@ -18,7 +18,7 @@ export default function Pass () {
             } }
       }, [password]);
   return (
-    <div>   <div style={{height:"15px",backgroundColor:"#177985"}}></div>
+    <div style={{minWidth:"1300px"}}>   <div style={{height:"15px",backgroundColor:"#177985"}}></div>
     <div style={{backgroundImage: 
 "url('images/cheese6.png')",
 height:'70px',

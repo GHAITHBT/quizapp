@@ -1017,22 +1017,22 @@ function nbPS  () {
   var nbe20=0
   Data.forEach(element => {
     
-    if(element.score<10){
+    if(element.score/20<50){
 nbi10=nbi10+1    }
    
-          if(element.score==20){
+          if(element.score/20==100){
             nbe20=nbe20+1
                 }
-                if(element.score>=10 && element.score<15){
+                if(element.score/20>=50 && element.score/20<70){
                   nbs10=nbs10+1
                       }
-                      if(element.score>14 && element.score<=19){
+                      if(element.score/20>75 && element.score/20<=95){
                         nbs15=nbs15+1
                             }
     
   });
   const data = {
-    labels: ["Score inférieur à 10","Score entre 10 et 14"," Score entre 15 et 19","Score égale à 20"], // first change
+    labels: ["Score inférieur à 50%","Score entre 50% et 70%"," Score entre 75% et 95%","Score égale à 100%"], // first change
     datasets: [{
       label: 'Nombre de participants selon leur score',
       fill: true,
@@ -1044,7 +1044,7 @@ nbi10=nbi10+1    }
         "purple",
         "#28a745",],
       pointHitRadius: 20,
-      data:[nbi10,nbs10,nbs18,nbe20] // second change
+      data:[nbi10,nbs10,nbs15,nbe20] // second change
     }]
   }; 
   return(
@@ -1134,11 +1134,11 @@ function StatPilier () {
   var col=""
   Data.forEach(element => {
     
-   VGEN=VGEN+element.Vision/4*100
-   CGEN=CGEN+element.Cohérence/4*100
-   PGEN=PGEN+element.Personnel/4*100
-   AGEN=AGEN+element.Adaptabilité/4*100
-   SGEN=SGEN+element.Sensibilisation/4*100 
+   VGEN=VGEN+element.Vision/4
+   CGEN=CGEN+element.Cohérence/4
+   PGEN=PGEN+element.Personnel/4
+   AGEN=AGEN+element.Adaptabilité/4
+   SGEN=SGEN+element.Sensibilisation/4
   });
   VGEN=VGEN/Data.length
 CGEN=CGEN/Data.length
@@ -1183,7 +1183,7 @@ if((VGEN+CGEN+PGEN+AGEN+SGEN)/5>49 && (VGEN+CGEN+PGEN+AGEN+SGEN)/5<=79){
     }]
   }; 
   return(
-    <div style={{width:"80%",height:"350px"}}> 
+    <div style={{width:"80%",height:"350px",minWidth:"1300px"}}> 
 
    <table ><tr><td style={{width:"50%"}}><BarChart chartData={data} ></BarChart></td><td style={{width:"50%"}} ><div style={{color:"#177985",fontWeight:'bold',fontSize:'20px'}}>Score : {(VGEN+CGEN+PGEN+AGEN+SGEN)/5}</div><span style={{color:`${col}`,fontWeight:"bold",fontSize:'20px'}}> {'=>'}{Resultat}</span></td></tr> </table>
    
@@ -1206,7 +1206,7 @@ function StatCAt  (V,C,P,A,S) {
         "#4f81bd",
         "#28a745",],
       pointHitRadius: 20,
-      data:[V,C,P,A,S] // second change
+      data:[V/100,C/100,P/100,A/100,S/100] // second change10
     }]
   }; 
   return(
@@ -1261,8 +1261,8 @@ const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear
                             {Data?.map((item) =>
                                 <tr >
                                   <td style={{border:"1px"}}>{item.Poste}</td>
-                                    <td>{item.score}/20</td>
-                                    <td> {(item.score / 20) * 100}%</td>
+                                    
+                                    <td> {(item.score / 20)}%</td>
                                     <td>{StatCAt(item.Vision/4*100,item.Cohérence/4*100,item.Personnel/4*100,item.Adaptabilité/4*100,item.Sensibilisation/4*100)}</td>
                                     
                                     

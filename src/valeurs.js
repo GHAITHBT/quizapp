@@ -7,7 +7,7 @@ export default function PageValeurs () {
     const navigate = useNavigate();
 
   return (
-	<div >
+	<div style={{minWidth:"1300px"}}>
     <div style={{height:"15px",backgroundColor:"#177985"}}></div>
            <div style={{backgroundImage: 
  "url('images/cheese6.png')",

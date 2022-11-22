@@ -32,7 +32,7 @@ export default function Home () {
     }, [index]);
   
   return (
-	<div >
+	<div style={{minWidth:"1300px"}}>
    <div style={{height:"15px",backgroundColor:"#177985"}}></div>
            <div style={{backgroundImage: 
  "url('images/cheese6.png')",
@@ -95,7 +95,7 @@ maxHeight:'80px',
        
         </div>
         <center>
-        <img alt="img1" src="images/chef6.gif" style={{width:"40%",height:"200px",borderRadius:'20px'}} ></img>   </center> </div>
+        <img alt="img1" src="images/chef7.jpg" style={{width:"30%",height:"150px",borderRadius:'20px'}} ></img>   </center> </div>
     
     </div>
 	</div>

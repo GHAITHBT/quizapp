@@ -16,7 +16,7 @@ return (
 
 		<NavMenu>
 		<NavLink to='/' >
-			<h6 style={{color:"blue"}}>Acceuil </h6>
+			<h6 style={{color:"blue"}}>Accueil </h6>
 		</NavLink>
 		<NavLink to='/Nos_Valeurs' activeStyle>
 			<h6>Nos Valeurs </h6>
@@ -29,7 +29,11 @@ return (
         <h6>Auto Évaluation  </h6>
 		</NavLink>
         <NavLink to='/password' activeStyle>
-        <h6>Rapport  </h6>
+        <h6>Rapport | </h6>
+		</NavLink>
+		
+		<NavLink to='/Accueil_AR' activeStyle>
+        <h6 style={{marginLeft:"50px"}}>العربية  </h6>
 		</NavLink>
 		
 		

@@ -107,6 +107,7 @@
     align-items: center;
     justify-content: space-between;
     box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+   
 }
 .quiz_box header .title{
   font-size: 20px;

@@ -13,13 +13,24 @@ export const NavLink = styled(Link)`
 color: Black;
 font-size:100px
 font-weight:bold
-display: flex;
+display: block;
 text-decoration: none;
 padding: 0 0.5rem;
 height: 100%;
 cursor: pointer;
 &.active {
 	color: red;
+};
+@media screen and (max-width: 0px) {
+	color: Black;
+font-size:50px
+font-weight:bold
+display: flex;
+text-decoration: none;
+padding: 0 0.2rem;
+transform: translate(-100%, 75%);
+top: 0;
+	right: 0;
 }
 `;
 

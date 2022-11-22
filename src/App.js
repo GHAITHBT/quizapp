@@ -8,6 +8,12 @@ import Pass from "./pass";
 import PageValeurs from "./valeurs";
 import PagePiliers from "./PiliersPage";
 import Resultat from "./Resultat";
+import Home_AR from "./Home_AR";
+import About_AR from "./Quiz_AR";
+import InfoPage_AR from "./Infopage_AR";
+import Pass_AR from "./pass_AR";
+import PageValeurs_AR from "./valeurs_AR";
+import PagePiliers_AR from "./PiliersPage_AR";
 function App() {
 	
 return ( 
@@ -23,6 +29,12 @@ return (
 		<Route exact path="/Nos_Valeurs" element={<PageValeurs />}/>
 		<Route exact path="/Piliers" element={<PagePiliers />}/>
 		<Route exact path="/Resultat" element={<Resultat />}/>
+		<Route exact path="/Accueil_AR" element={<Home_AR/>}/>
+		<Route exact path="/Quiz_AR" element={<About_AR/>}/>
+		<Route exact path="/Info_AR" element={<InfoPage_AR/>}/>
+		<Route exact path="/Password_AR" element={<Pass_AR/>}/>
+		<Route exact path="/Nos_Valeurs_AR" element={<PageValeurs_AR />}/>
+		<Route exact path="/Piliers_AR" element={<PagePiliers_AR />}/>
 
 
 
