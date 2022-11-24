@@ -4,7 +4,7 @@ import {Navigate, useNavigate} from "react-router-dom"
 import Navbar_AR from "./components/index_AR";
 export default function Home_AR () {
   const navigate = useNavigate();
-  const images = ["images/PFSC1.jpeg", "images/bg.png"];
+  const images = ["images/bg1.jpg","images/PFSC1.jpeg", "images/bg.png"];
   const delay = 2500;
   
     const [index, setIndex] = React.useState(0);
@@ -70,7 +70,7 @@ maxHeight:'80px',
           <div
             className="slide"
             key={index}>
-            <img alt="img1" src={images} style={{width:"90%",height:"350px"}} ></img>
+            <img alt="img1" src={images} style={{width:"90%",height:"460px"}} ></img>
           </div>
         ))}
       </div>

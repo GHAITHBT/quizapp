@@ -243,7 +243,7 @@ const handledata = () => {
       ],
       cat:"Sensibilisation",
     },{
-      text: " Comment placez-vous l'implication des ressources humaines dans le processus de sécurité des aliments:",
+      text: " Comment placez-vous l'implication des ressources humaines dans le processus de sécurité des aliments ? :",
       options: [
         { id: 0, text: "Sont intégrées au processus dans son ensemble et ont une démarche active dans la sélection et l'accompagnement des ressources. "},
         { id: 1, text: "Peu de relations, le service qualité assure la gestion de l'hygiène."},
@@ -263,7 +263,7 @@ const handledata = () => {
       ],
       cat:"Cohérence",
     },{
-      text: " Comment percevez-vous de manière globale, la capacité des employés de IAT, dans la gestion des changements, des crises et dans la résolution des problèmes liés à la sécurité des aliments:",
+      text: " Comment percevez-vous de manière globale, la capacité des employés de IAT, dans la gestion des changements, des crises et dans la résolution des problèmes liés à la sécurité des aliments ? :",
       options: [
         { id: 0, text: "Les cas de gestion de crises ou tests réalisés par le passé ont montré une bonne volonté de la part des employés. Bien qu'un manque d'initiative soit constaté cela sans freiner les changements qu’ils sont suivis." },
         { id: 1, text: "L'encadrement assure la gestion, le personnel n'est pas en mesure de prendre les décisions en cas de changements. "},

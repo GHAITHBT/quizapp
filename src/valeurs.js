@@ -25,7 +25,8 @@ export default function PageValeurs () {
        <div >
        <center>  <hr style={{border: "3px solid #4682B4",width:"80%"}}></hr></center>
 
-        <center><h1>Nos Valeurs</h1></center>
+        <center><h1>Nos Valeurs</h1></center><br></br>
+        <center><h3>Partager une vision et des valeurs, voilà ce qui nous fera exister demain .</h3></center>
      <center>  <hr style={{border: "3px solid #4682B4",width:"80%"}}></hr></center>
 
 
@@ -33,7 +34,7 @@ export default function PageValeurs () {
 <div style={{width:"100%"}}>
     <table style={{width:"100%"}}>
         <tr>
-             <td style={{width:"50%"}}><h2 style={{color:"#D32F2F"}}>LA GENEROSITÉ </h2><h3>Nous sommes généreux de cœur, et pour nous, il s'agit de donner plus aux autres. 
+             <td style={{width:"50%"}}><h1 style={{color:"#D32F2F",fontWeight:'bold'}}>LA GENEROSITÉ </h1><h3>Nous sommes généreux de cœur, et pour nous, il s'agit de donner plus aux autres. 
 </h3></td>
              <td style={{width:"50%"}}><img alt="img1" src="images/genero.jpg" style={{width:"50%",height:"100%",marginLeft:'40%',borderRadius:'20px'}} ></img>
 </td>
@@ -48,7 +49,7 @@ export default function PageValeurs () {
         <tr>
         <td style={{width:"50%"}}><img alt="img1" src="images/mutua.jpg" style={{width:"50%",height:"100%",borderRadius:'20px'}} ></img>
 </td>
-             <td style={{width:"50%"}}><h2 style={{color:'#303F9F'}}>LA MUTUALITE : </h2><h3>Nous écoutons et valorisons toujours l'opinion des autres. Nous pensons que nous ne pouvons pas avancer sans collaboration. </h3></td>
+             <td style={{width:"50%"}}><h1 style={{color:'#303F9F',fontWeight:'bold'}}>LA MUTUALITE : </h1><h3>Nous écoutons et valorisons toujours l'opinion des autres. Nous pensons que nous ne pouvons pas avancer sans collaboration. </h3></td>
              
         </tr>
     </table>
@@ -58,8 +59,8 @@ export default function PageValeurs () {
 <div>
     <table style={{width:"100%"}}>
         <tr>
-            <td style={{width:"50%"}}><h2 style={{color:'#455A64'}}>LA CONFIANCE 
-</h2><h3>La qualité est la base de tout ce que nous faisons. Nous aspirons à toujours améliorer les standards et à donner l'exemple. 
+            <td style={{width:"50%"}}><h1 style={{color:'#455A64',fontWeight:"bold"}}>LA CONFIANCE 
+</h1><h3>La qualité est la base de tout ce que nous faisons. Nous aspirons à toujours améliorer les standards et à donner l'exemple. 
 
 </h3></td>
              <td style={{width:"50%"}}><img alt="img1" src="images/confi.jpg" style={{width:"50%",height:"100%",marginLeft:'40%',borderRadius:'20px'}} ></img>
@@ -74,7 +75,7 @@ export default function PageValeurs () {
         <tr>
         <td style={{width:"50%"}}><img alt="img1" src="images/rig.jpg" style={{width:"50%",height:"100%",borderRadius:'20px'}} ></img>
 </td>
-             <td style={{width:"50%"}}><h2 style={{color:'#689F38'}}>LA RIGUEUR </h2><h3>Nous tenons à nos engagements, nous faisons preuve de discipline et de persévérance. 
+             <td style={{width:"50%"}}><h1 style={{color:'#689F38',fontWeight:"bold"}}>LA RIGUEUR </h1><h3>Nous tenons à nos engagements, nous faisons preuve de discipline et de persévérance. 
 </h3></td>
            
         </tr>
@@ -85,7 +86,7 @@ export default function PageValeurs () {
 <div>
     <table style={{width:"100%",}}>
         <tr>
-             <td style={{width:"50%"}}><h2 style={{color:'#FBC02D'}}>L’INNOVATION</h2><h3>Nous sommes à la recherche constante de l’amélioration de l’existant. Nous avons le sens de l’initiative et de la créativité. 
+             <td style={{width:"50%"}}><h1 style={{color:'#FBC02D',fontWeight:'bold'}}>L’INNOVATION</h1><h3>Nous sommes à la recherche constante de l’amélioration de l’existant. Nous avons le sens de l’initiative et de la créativité. 
 
 </h3></td>
              <td style={{width:"50%"}}><img alt="img1" src="images/innova.png" style={{width:"50%",height:"100%",borderRadius:'20px',marginLeft:'40%'}} ></img>

@@ -25,6 +25,7 @@ export default function PageValeurs_AR () {
        <center>  <hr style={{border: "3px solid #4682B4",width:"80%"}}></hr></center>
 
         <center><h1>قيمنا</h1></center>
+       <center><h3>تقاسم الرؤية والقيم هو ما سيجعلنا موجودين غدًا</h3></center> 
      <center>  <hr style={{border: "3px solid #4682B4",width:"80%"}}></hr></center>
 
 
@@ -32,7 +33,7 @@ export default function PageValeurs_AR () {
 <div style={{width:"100%"}}>
     <table style={{width:"100%"}}>
         <tr>
-             <td style={{width:"50%",}}><h2 style={{color:"#D32F2F",marginLeft:"550px"}}>الكرم </h2><h3 style={{textAlignLast:'right',marginLeft:"auto",textAlign:"right"}}>نحن كرماء من القلب ، و يتعلق الأمر بالنسبة لنا  بتقديم المزيد للآخرين. 
+             <td style={{width:"50%",}}><h1 style={{color:"#D32F2F",marginLeft:"550px",fontWeight:'bold'}}>الكرم </h1><h3 style={{textAlignLast:'right',marginLeft:"auto",textAlign:"right"}}>نحن كرماء من القلب ، و يتعلق الأمر بالنسبة لنا  بتقديم المزيد للآخرين
  
 </h3></td>
              <td style={{width:"50%"}}><img alt="img1" src="images/genero.jpg" style={{width:"50%",height:"100%",marginLeft:'40%',borderRadius:'20px'}} ></img>
@@ -48,7 +49,7 @@ export default function PageValeurs_AR () {
         <tr>
         <td style={{width:"50%"}}><img alt="img1" src="images/mutua.jpg" style={{width:"50%",height:"100%",borderRadius:'20px'}} ></img>
 </td>
-             <td style={{width:"50%"}}><h2 style={{color:'#303F9F',marginLeft:"400px"}}>تبادل العواطف </h2><h3 style={{textAlignLast:'right',marginLeft:"auto",textAlign:"right"}}>نحن دائما نصغي ونقدر رأي الآخرين. نعتقد أنه لا يمكننا المضي قدمًا بدون تعاون و تشارك
+             <td style={{width:"50%"}}><h1 style={{color:'#303F9F',marginLeft:"400px",fontWeight:"bold"}}>تبادل العواطف </h1><h3 style={{textAlignLast:'right',marginLeft:"auto",textAlign:"right",marginRight:"20px"}}>نحن دائما نصغي ونقدر رأي الآخرين. نعتقد أنه لا يمكننا المضي قدمًا بدون تعاون و تشارك
  </h3></td>
              
         </tr>
@@ -59,8 +60,8 @@ export default function PageValeurs_AR () {
 <div>
     <table style={{width:"100%"}}>
         <tr>
-            <td style={{width:"50%"}}><h2 style={{color:'#455A64',marginLeft:"550px"}}>الثقة 
-</h2><h3 style={{textAlignLast:'right',marginLeft:"auto",textAlign:"right"}}>الجودة هي أساس لكل ما نقوم به. نحن نطمح دائمًا إلى تحسين المعايير ونعطي المثال 
+            <td style={{width:"50%"}}><h1 style={{color:'#455A64',marginLeft:"550px",fontWeight:"bold"}}>الثقة 
+</h1><h3 style={{textAlignLast:'right',marginLeft:"auto",textAlign:"right"}}>الجودة هي أساس لكل ما نقوم به. نحن نطمح دائمًا إلى تحسين المعايير ونعطي المثال 
  
 
 </h3></td>
@@ -76,7 +77,7 @@ export default function PageValeurs_AR () {
         <tr>
         <td style={{width:"50%"}}><img alt="img1" src="images/rig.jpg" style={{width:"50%",height:"100%",borderRadius:'20px'}} ></img>
 </td>
-             <td style={{width:"50%"}}><h2 style={{color:'#689F38',marginLeft:"400px"}}>الانضباط </h2><h3 style={{textAlignLast:'right',marginLeft:"auto",textAlign:"right"}}>نتمسك بالتزاماتنا ، ونظهر الانضباط والمثابرة
+             <td style={{width:"50%"}}><h1 style={{color:'#689F38',marginLeft:"400px",fontWeight:"bold"}}>الانضباط </h1><h3 style={{textAlignLast:'right',marginLeft:"auto",textAlign:"right",marginRight:"20px"}}>نتمسك بالتزاماتنا ، ونظهر الانضباط والمثابرة
 </h3></td>
            
         </tr>
@@ -87,7 +88,7 @@ export default function PageValeurs_AR () {
 <div>
     <table style={{width:"100%",}}>
         <tr>
-             <td style={{width:"50%"}}><h2 style={{color:'#FBC02D',marginLeft:"550px"}}>الإبتكار</h2><h3 style={{textAlignLast:'right',marginLeft:"auto",textAlign:"right"}}>نحن نبحث باستمرار عن طرق لتحسين ما هو موجود بالفعل. لدينا حس المبادرة والإبداع
+             <td style={{width:"50%"}}><h1 style={{color:'#FBC02D',marginLeft:"550px",fontWeight:"bold"}}>الإبتكار</h1><h3 style={{textAlignLast:'right',marginLeft:"auto",textAlign:"right"}}>نحن نبحث باستمرار عن طرق لتحسين ما هو موجود بالفعل. لدينا حس المبادرة والإبداع
 
 </h3></td>
              <td style={{width:"50%"}}><img alt="img1" src="images/innova.png" style={{width:"50%",height:"100%",borderRadius:'20px',marginLeft:'40%'}} ></img>

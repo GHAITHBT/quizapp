@@ -392,18 +392,18 @@ button {
   margin: 0 auto;
   overflow: hidden;
   max-width: 100%;
-  max-height: 400px;
+  max-height: 500px;
 }
 
 .slideshowSlider {
   white-space: nowrap;
-  transition:  2500ms;
+  transition:  2000ms;
 }
 
 .slide {
   display: inline-block;
 
-  height: 400px;
+  height: 500px;
   width: 100%;
   border-radius: 40px;
 }

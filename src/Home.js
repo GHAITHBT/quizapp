@@ -53,8 +53,8 @@ maxHeight:'80px',
                backgroundSize: 'cover',
                backgroundRepeat: 'no-repeat'}}>
 <div style={{backgroundImage: 
- "url('images/cheese2.jpg')",
-        height:'100%',
+ "url('images/bg1.jpg')",
+        height:'150%',
         marginTop:'0px',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'}}>
@@ -70,7 +70,7 @@ maxHeight:'80px',
           <div
             className="slide"
             key={index}>
-            <img alt="img1" src={images} style={{width:"90%",height:"350px"}} ></img>
+            <img alt="img1" src={images} style={{width:"90%",height:"460px"}} ></img>
           </div>
         ))}
       </div>
@@ -95,7 +95,7 @@ maxHeight:'80px',
        
         </div>
         <center>
-        <img alt="img1" src="images/chef7.jpg" style={{width:"30%",height:"150px",borderRadius:'20px'}} ></img>   </center> </div>
+        <img alt="img1" src="images/chef9.jpg" style={{width:"30%",height:"150px",borderRadius:'20px'}} ></img>   </center> </div>
     
     </div>
 	</div>
