@@ -35,7 +35,7 @@ const [time, setTime] = useState(0);
    const [repo, setRepo] = useState("");
    const [QST, setQST] = useState([]);
 const handledata = () => {
-    const url = `https://fsc-express-server.herokuapp.com/add_data`
+    const url = `http://localhost:5001/add_data`
     const Credentials = { Poste,QST,score,time,Vision,Cohérence,Personnel,Adaptabilité,Sensibilisation}
 
     axios.post(url, Credentials)

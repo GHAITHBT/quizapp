@@ -28,7 +28,7 @@ var nbp3=0
 const [QSTREP, setQSTREP] = useState([10]);
 const GetEmployeeData = () => {
     //here we will get all employee data
-    const url = 'https://fsc-express-server.herokuapp.com/data'
+    const url = 'http://localhost:5001/data'
     axios.get(url)
     
         .then(response => {

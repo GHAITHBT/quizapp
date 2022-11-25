@@ -8,7 +8,7 @@ const  ObjectID = require('mongodb').ObjectId;
 var dattaa="";
 app.use(bodyParser.json())
 app.use(cors())
-const mongo_url ='mongodb+srv://ADMIN:ADMIN@fscdb.06a1hct.mongodb.net/?retryWrites=true&w=majority'
+const mongo_url ='mongodb://127.0.0.1:27017'
 const dataBase ='QUIZDATA'
 MongoClient.connect(mongo_url,{
   useNewUrlParser :true,
