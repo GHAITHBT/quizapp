@@ -4,7 +4,7 @@ import {Navigate, useNavigate} from "react-router-dom"
 import Navbar_AR from "./components/index_AR";
 export default function Home_AR () {
   const navigate = useNavigate();
-  const images = ["images/bg1.jpg","images/PFSC1.jpeg", "images/bg.png"];
+  const images = ["images/PFSC1.jpeg", "images/bg.png"];
   const delay = 2500;
   
     const [index, setIndex] = React.useState(0);
@@ -53,8 +53,8 @@ maxHeight:'80px',
                backgroundSize: 'cover',
                backgroundRepeat: 'no-repeat'}}>
 <div style={{backgroundImage: 
- "url('images/cheese2.jpg')",
-        height:'100%',
+ "url('images/bg_ar.png')",
+        height:'150%',
         marginTop:'0px',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'}}>
@@ -94,8 +94,7 @@ maxHeight:'80px',
         <br></br>
        
         </div>
-        <center>
-        <img alt="img1" src="images/chef_ar1.jpg" style={{width:"30%",height:"150px",borderRadius:'20px'}} ></img>   </center> </div>
+         </div>
     
     </div>
 	</div>

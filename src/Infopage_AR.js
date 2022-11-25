@@ -38,7 +38,7 @@ export default function InfoPage_AR () {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'}}>
     <div class="card text-white bg-dark mb-3 info_box" style={{width:"60%",cursor:"pointer"}}>
-        <center ><h4 style={{color:"white"}}>حدد دورك </h4></center>
+        <center ><h4 style={{color:"white"}}>حدد منصبك في الشركة </h4></center>
   <div class="card-body">
     <table style={{width:"100%",textAlignLast:'right',marginLeft:"auto",textAlign:"right"}}> 
       <tr>
@@ -47,8 +47,7 @@ export default function InfoPage_AR () {
        مسؤول  <input type="radio"  name="Fonction" style={{fontWeight:"bold",marginRight:"auto"}} onChange={(e) =>BT( localStorage.setItem('Poste',"Directeur"))}/><br></br></td>
         </tr>
         <tr>
-          <td>
-       رئيس الخدمة   <input type="radio"  name="Fonction" onChange={(e) =>BT(localStorage.setItem('Poste',"Chef service"))}/> <br></br>
+          <td>رئيس مصلحة    <input type="radio"  name="Fonction" onChange={(e) =>BT(localStorage.setItem('Poste',"Chef service"))}/> <br></br>
         </td>
         <td>
          رئيس ورشة العمل <input type="radio"  name="Fonction" onChange={(e) =>BT(localStorage.setItem('Poste',"Chef d'atelier"))}/><br></br>
@@ -57,16 +56,16 @@ export default function InfoPage_AR () {
         <tr>
         <td>
          قائد الفريق  <input type="radio"  name="Fonction" onChange={(e) =>BT(localStorage.setItem('Poste',"Chef d'équipe"))}/><br></br></td><td>
-         سائق  <input type="radio"  name="Fonction" onChange={(e) =>BT(localStorage.setItem('Poste',"Conducteur"))}/><br></br></td>
+          سائق الألة  <input type="radio"  name="Fonction" onChange={(e) =>BT(localStorage.setItem('Poste',"Conducteur"))}/><br></br></td>
          </tr>
          <tr>
          <td>
-        القائد  <input type="radio"  name="Fonction" onChange={(e) =>BT(localStorage.setItem('Poste',"Conductrice"))}/> <br></br></td>
+      سائقة الألة  <input type="radio"  name="Fonction" onChange={(e) =>BT(localStorage.setItem('Poste',"Conductrice"))}/> <br></br></td>
          <td>
          عامل <input type="radio"  name="Fonction" onChange={(e) =>BT(localStorage.setItem('Poste',"Opérateur"))}/> <br></br></td></tr>
          <tr>
          <td>
-          امين المخزن <input type="radio"  name="Fonction" onChange={(e) =>BT(localStorage.setItem('Poste',"Magasinier"))}/> <br></br></td>
+           أمين المغازة <input type="radio"  name="Fonction" onChange={(e) =>BT(localStorage.setItem('Poste',"Magasinier"))}/> <br></br></td>
           <td> فني صيانة <input type="radio"  name="Fonction" onChange={(e) =>BT(localStorage.setItem('Poste',"Technicien maintenance"))}/> </td></tr>
           </table>
 

@@ -53,7 +53,7 @@ maxHeight:'80px',
                backgroundSize: 'cover',
                backgroundRepeat: 'no-repeat'}}>
 <div style={{backgroundImage: 
- "url('images/bg1.jpg')",
+ "url('images/bg1.png')",
         height:'150%',
         marginTop:'0px',
         backgroundSize: 'cover',
@@ -94,8 +94,7 @@ maxHeight:'80px',
         <br></br>
        
         </div>
-        <center>
-        <img alt="img1" src="images/chef9.jpg" style={{width:"30%",height:"150px",borderRadius:'20px'}} ></img>   </center> </div>
+         </div>
     
     </div>
 	</div>
